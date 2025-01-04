@@ -6,6 +6,7 @@ import { Search } from "lucide-react";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { TextField, Button } from "@mui/material";
 const Home = () => {
   const Cards = [
     {
@@ -212,46 +213,153 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16">
-        <h6 className="ml-12 text-3xl font-semibold text-gray-800">
-          Popular Localities in and Around Mumbai
-        </h6>
-      </div>
+      {/* Location Section */}
+      <div>
+        <div className="mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16 ">
+          <h6 className="ml-12 text-3xl text-gray-800">
+            Popular Localities in and Around{" "}
+            <span className="font-semibold">Mumbai</span>
+          </h6>
+        </div>
 
-      <div className="mt-8 mb-10 px-6 sm:px-12 grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">
-        {Locations.map((card, index) => (
-          <div
-            key={index}
-            className="relative border-gray-800 flex justify-between bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-100 hover:bg-white-50 cursor-pointer"
-          >
-            {/* Card Text */}
-            <div className="flex justify-between gap-2 items-center w-full p-5">
-              <div>
-                <h5 className="text-xl text-gray-800">{card.city}</h5>
+        <div className="mt-8 mb-[5rem] px-6 sm:px-12 grid gap-6 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">
+          {Locations.map((card, index) => (
+            <div
+              key={index}
+              className="relative border-2 border-grey-800 flex justify-between bg-white rounded-lg shadow-xs hover:shadow-lg transition duration-100 ease-in-out transform hover:scale-100 hover:bg-white-50 cursor-pointer"
+            >
+              {/* Card Text */}
+              <div
+                className="flex justify-between items-center w-full"
+                style={{ padding: "1rem 1rem" }}
+              >
+                <div>
+                  <h5 className="text-2xl text-gray-800">{card.city}</h5>
+                  {card.city === "See More" ? (
+                    <h6 className=" mt-1 text-[1rem] text-white">text</h6>
+                  ) : (
+                    <h6 className=" mt-1 text-[1rem] text-gray-600">
+                      {card.places} Places
+                    </h6>
+                  )}
+                </div>
                 {card.city === "See More" ? (
-                  ""
+                  <KeyboardArrowDownIcon
+                    sx={{
+                      marginTop: "5px",
+                    }}
+                  />
                 ) : (
-                  <h6 className="text-lg mt-2  text-gray-800">
-                    {card.places} Places
-                  </h6>
+                  <KeyboardArrowRightIcon
+                    sx={{
+                      marginTop: "5px",
+                    }}
+                  />
                 )}
               </div>
-              {card.city === "See More" ? (
-                <KeyboardArrowDownIcon
-                  sx={{
-                    marginTop: "5px",
-                  }}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: "rgb(255, 251, 247" }} className="p-2">
+        <div className="flex justify-center flex-row">
+          <img
+            className="hidden xs:block sm:block"
+            width={"30%"}
+            height={"auto"}
+            src="https://b.zmtcdn.com/data/o2_assets/ce5bc038a8a2d4f8f24465c8826182af1726501431.png"
+            alt="Mobile App"
+          />
+
+          <div className="ml-5 mt-10">
+            <h1 className="text-4xl">Get the Zomato app</h1>
+            <h1 className="mt-5 text-xl text-grey-600 font-light">
+              We will send you a link, open it on your phone to download the app
+            </h1>
+            <div className="mt-7 flex items-center gap-20">
+              <div className="flex items-center">
+                <input
+                  id="email-radio"
+                  type="radio"
+                  name="contact-method"
+                  className="w-4 h-4 text-red-600 border-gray-300 focus:ring-0 focus:ring-red-600"
                 />
-              ) : (
-                <KeyboardArrowRightIcon
-                  sx={{
-                    marginTop: "5px",
-                  }}
+                <label
+                  htmlFor="email-radio"
+                  className="ml-2 text-gray-800 font-light"
+                >
+                  Email
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="phone-radio"
+                  type="radio"
+                  name="contact-method"
+                  className="w-4 h-4 text-red-600 border-red-600 focus:ring-0 checked:bg-red-600"
                 />
-              )}
+                <label
+                  htmlFor="phone-radio"
+                  className="ml-2 text-gray-800 font-light"
+                >
+                  Phone
+                </label>
+              </div>
+            </div>
+            <div className="mt-5">
+              <TextField
+                id="outlined-basic"
+                sx={{
+                  width: "15rem",
+                  "& .MuiOutlinedInput-root": {
+                    "&.Mui-focused fieldset": {
+                      borderColor: "rgb(224, 53, 70)",
+                    },
+                  },
+                  "& .MuiInputLabel-root": {
+                    "&.Mui-focused": {
+                      color: "rgb(224, 53, 70)",
+                    },
+                  },
+                }}
+                label="Email"
+                variant="outlined"
+              />
+              <Button
+                sx={{
+                  height: "53px",
+                  backgroundColor: "rgb(224, 53, 70)",
+                  color: "white",
+                  marginLeft: "10px",
+                  padding: "5px 20px",
+                  textTransform: "none",
+                  borderRadius: "5px",
+                }}
+              >
+                <span className="block sm:hidden">Share</span>
+                <span className="hidden sm:block">Share App Link</span>
+              </Button>
+            </div>
+
+            <h5 className="mt-5 text-gray-600 font-light text-center">
+              Download app from
+            </h5>
+
+            <div className="flex items-center gap-5 mt-5 justify-center">
+              <img
+                width={"25%"}
+                src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"
+                alt="Picture"
+              ></img>
+              <img
+                width={"25%"}
+                src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png"
+                alt="Picture"
+              ></img>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
