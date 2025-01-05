@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { PhoneNumber, EmailField } from "../../components/Contact/Contact";
@@ -248,13 +249,16 @@ const Home = ({ isHomeVisible }) => {
             </div>
 
             {/* Subheading */}
-            <p className="text-xl sm:text-2xl text-white mb-8 font-light">
+            <p
+              className="text-xl sm:text-2xl text-white mb-8 font-light"
+              style={{ fontSize: "2rem", fontWeight: "400" }}
+            >
               Discover the best food & drinks in{" "}
               <span className="font-semibold">Mumbai</span>
             </p>
 
             {/* Search Bar */}
-            <div className="relative flex flex-col sm:flex-row justify-center items-center sm:space-y-0 space-y-3 sm:space-x-[-15px]">
+            <div className="relative flex flex-col sm:flex-row justify-center items-center sm:space-y-0 space-y-3 sm:space-x-[-11px]">
               {/* Location Input */}
               {!isHomeVisible ? (
                 <div className="flex items-center px-4 py-3 bg-white text-gray-700 rounded-lg w-full sm:w-64">
@@ -264,6 +268,7 @@ const Home = ({ isHomeVisible }) => {
                     className="flex-1 outline-none placeholder-gray-400"
                     placeholder="Mumbai"
                   />
+                  <ArrowDropDownIcon />
                 </div>
               ) : null}
 
@@ -277,7 +282,7 @@ const Home = ({ isHomeVisible }) => {
 
               {/* Search Input */}
               {!isHomeVisible ? (
-                <div className="flex items-center px-4 py-3 bg-white text-gray-700 rounded-lg w-full sm:w-96">
+                <div className="flex items-center px-4 py-3 bg-white text-gray-700 rounded-lg w-full lg:w-96">
                   <Search className="text-gray-400 mr-2" />
                   <input
                     type="text"
