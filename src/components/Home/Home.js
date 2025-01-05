@@ -7,12 +7,10 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { TextField, Button } from "@mui/material";
-import PhoneInput from "react-phone-input-2";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
+import { PhoneNumber, EmailField } from "../PhoneNumber/PhoneNumber";
 const Home = () => {
   const [isEmail, setEmail] = useState(true); // State to track the selected input
-
   const [openAccordions, setOpenAccordions] = useState([]); // State to track open accordions
 
   // Toggle function to open/close accordions
@@ -482,58 +480,14 @@ const Home = () => {
               </div>
 
               {/* Input field */}
-              <div className="mt-5 flex">
-                {isEmail ? (
-                  <TextField
-                    id="email-input"
-                    sx={{
-                      width: "15rem",
-                      "& .MuiOutlinedInput-root": {
-                        "&.Mui-focused fieldset": {
-                          borderColor: "rgb(224, 53, 70)",
-                        },
-                      },
-                      "& .MuiInputLabel-root": {
-                        "&.Mui-focused": {
-                          color: "rgb(224, 53, 70)",
-                        },
-                      },
-                    }}
-                    label="Email"
-                    variant="outlined"
-                  />
-                ) : (
-                  <div className="w-[15rem]">
-                    <PhoneInput
-                      country={"in"} // Default country
-                      placeholder="" // Removes the default "Phone" label
-                      inputStyle={{
-                        width: "100%",
-                        borderRadius: "4px",
-                        borderColor: "rgb(224, 53, 70)",
-                        height: "53px",
-                      }}
-                      buttonStyle={{
-                        borderRadius: "4px 0 0 4px",
-                        borderColor: "rgb(224, 53, 70)",
-                      }}
-                    />
+              <div className="mt-5">
+                {/* Flex container with responsive layout */}
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  {/* Input Field */}
+                  <div className="w-full sm:w-8/12">
+                    {isEmail ? <EmailField /> : <PhoneNumber />}
                   </div>
-                )}
-                <Button
-                  sx={{
-                    height: "53px",
-                    backgroundColor: "rgb(224, 53, 70)",
-                    color: "white",
-                    marginLeft: "10px",
-                    padding: "5px 20px",
-                    textTransform: "none",
-                    borderRadius: "5px",
-                  }}
-                >
-                  <span className="block sm:hidden">Share</span>
-                  <span className="hidden sm:block">Share App Link</span>
-                </Button>
+                </div>
               </div>
             </div>
 
@@ -612,15 +566,27 @@ const Home = () => {
               {openAccordions.includes(index) && (
                 <div className="px-6 py-4 text-gray-600">
                   <ul className="list-none pl-6 flex flex-wrap gap-6 wrapper">
-                    {card.desc.map((descItem, idx) => (
-                      <li
-                        key={idx}
-                        className="text-[1.1rem]  text-gray-500 hover:text-gray-800 transition duration-200 ease-in-out"
-                        style={{ flex: "0 0 18%" }} // Controls the width of each item to fit two items per row
-                      >
-                        {descItem}
-                      </li>
-                    ))}
+                    {/* Conditionally render bullets for "Popular Cuisines Near Me" and "Popular Restaurant Types Near Me" */}
+                    {card.title === "Popular Cuisines Near Me" ||
+                    card.title === "Popular Restaurant Types Near Me"
+                      ? card.desc.map((descItem, idx) => (
+                          <li
+                            key={idx}
+                            className="text-[1.1rem] text-gray-500 hover:text-gray-800 transition duration-200 ease-in-out"
+                            style={{ flex: "0 0 18%" }} // Controls the width of each item to fit two items per row
+                          >
+                            {descItem}
+                          </li>
+                        ))
+                      : // Render non-bullet content for "Top Restaurant Chains" and "Cities We Deliver To"
+                        card.desc.map((descItem, idx) => (
+                          <div
+                            key={idx}
+                            className="text-[1.1rem] text-gray-500"
+                          >
+                            {descItem}
+                          </div>
+                        ))}
                   </ul>
                 </div>
               )}
