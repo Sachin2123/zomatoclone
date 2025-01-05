@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Header = () => {
+const Header = ({ setIsHomeVisible }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const NavItems = [
@@ -12,6 +12,8 @@ const Header = () => {
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+    console.log("Header.js:- ", !isDrawerOpen);
+    setIsHomeVisible(!isDrawerOpen); // Toggle Home page visibility
   };
 
   return (
