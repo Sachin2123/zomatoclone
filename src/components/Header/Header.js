@@ -3,12 +3,7 @@ import React, { useState } from "react";
 const Header = ({ setIsHomeVisible }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const NavItems = [
-    "Investor Relations",
-    "Add Restaurant",
-    "Log in",
-    "Sign up",
-  ];
+  const NavItems = ["Investor Relations", "Sign Up", "Log in"];
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -102,9 +97,9 @@ const Header = ({ setIsHomeVisible }) => {
               {NavItems.map((item, index) => (
                 <li
                   key={index}
-                  className="text-gray-800 text-lg font-medium cursor-pointer hover:text-gray-600"
+                  className="flex items-center space-x-2 text-gray-800 text-lg font-medium cursor-pointer hover:text-gray-600 transition-all duration-300 ease-in-out"
                 >
-                  {item}
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
