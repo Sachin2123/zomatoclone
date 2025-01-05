@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import INDIA from "../../flags/INDIA.png";
+import INDIA from "../../flags/India.png";
 import UAE from "../../flags/UAE.png";
 import LanguageIcon from "@mui/icons-material/Language";
 const Footer = () => {
