@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BG from "../../BackgroundImage/ZomatoHomePage.avif";
 import Zomato from "../../BackgroundImage/ZomatoTitle.avif";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
@@ -7,7 +7,24 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { TextField, Button } from "@mui/material";
+import PhoneInput from "react-phone-input-2";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 const Home = () => {
+  const [isEmail, setEmail] = useState(true); // State to track the selected input
+
+  const [openAccordions, setOpenAccordions] = useState([]); // State to track open accordions
+
+  // Toggle function to open/close accordions
+  const toggleAccordion = (index) => {
+    setOpenAccordions(
+      (prevState) =>
+        prevState.includes(index)
+          ? prevState.filter((id) => id !== index) // Close accordion if already open
+          : [...prevState, index] // Open accordion if not open
+    );
+  };
+
   const Cards = [
     {
       title: "Order Online",
@@ -26,12 +43,6 @@ const Home = () => {
       desc: "Discover live events happening in your city.",
       image:
         "https://b.zmtcdn.com/data/o2_assets/371de657644f1b5818fcb5d83387c8c91722851940.png?output-format=webp&fit=around|402:360&crop=402:360;*,*",
-    },
-    {
-      title: "Order Online",
-      desc: "Order your favorite food and enjoy at home.",
-      image:
-        "https://b.zmtcdn.com/webFrontend/e5b8785c257af2a7f354f1addaf37e4e1647364814.jpeg?output-format=webp&fit=around|402:360&crop=402:360;*,*",
     },
   ];
 
@@ -72,6 +83,103 @@ const Home = () => {
     { city: "Fort", places: 289 },
     { city: "Juhu", places: 250 },
     { city: "See More", places: "" },
+  ];
+
+  const cities = [
+    "Ahmedabad",
+    "Bangalore",
+    "Chandigarh",
+    "Chennai",
+    "Delhi",
+    "Mumbai",
+    "Hyderabad",
+    "Pune",
+    "Kolkata",
+    "Jaipur",
+    "Lucknow",
+    "Indore",
+    "Surat",
+    "Bhopal",
+    "Patna",
+    "Guwahati",
+    "Nagpur",
+    "Vadodara",
+    "Coimbatore",
+    "Thiruvananthapuram",
+  ];
+
+  const Accordion = [
+    {
+      title: "Popular Cuisines Near Me",
+      desc: [
+        "Bakery near me",
+        "Beverages near me",
+        "Biryani near me",
+        "Burger near me",
+        "Chinese near me",
+        "Desserts near me",
+        "Ice Cream near me",
+        "Kebab near me",
+        "Maharashtrian near me",
+        "Momos near me",
+        "Mughlai near me",
+        "Pizza near me",
+        "Rolls near me",
+        "Sandwich near me",
+        "Seafood near me",
+        "Shake near me",
+        "Sichuan near me",
+
+        "Street near me",
+      ],
+    },
+    {
+      title: "Popular Restaurant Types Near Me",
+      desc: [
+        "Bakeries near me",
+        "Bars near me",
+        "Beverage Shops near me",
+        "Bhojanalya near me",
+        "Cafés near me",
+        "Casual Dining near me",
+        "Clubs near me",
+        "Cocktail Bars near me",
+        "Confectioneries near me",
+        "Dessert Parlors near me",
+        "Dhabas near me",
+        "Fine Dining near me",
+        "Food Courts near me",
+        "Food Trucks near me",
+        "Irani Cafes near me",
+        "Kiosks near me",
+        "Lounges near me",
+        "Microbreweries near me",
+        "Paan Shop near me",
+        "Pubs near me",
+        "Quick Bites near me",
+        "Shacks near me",
+        "Sweet Shops near me",
+      ],
+    },
+    {
+      title: "Top Restaurant Chains",
+      desc: [
+        "Bikanervala",
+        "Biryani Blues",
+        "Burger King",
+        "Domino's",
+        "Dunkin' Donuts",
+        "KFC",
+        "Krispy Kreme",
+        "McDonald's",
+        "Pizza Hut",
+        "WOW! Momo",
+      ],
+    },
+    {
+      title: "Cities We Deliver To",
+      desc: cities,
+    },
   ];
 
   return (
@@ -125,11 +233,14 @@ const Home = () => {
       </div>
 
       {/* Card Section */}
-      <div className="mt-12 mb-20 px-6 sm:px-12 grid gap-6 sm:gap-12 grid-cols-2 md:grid-cols-2 xs:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-center">
+      <div
+        // style={{ padding: "0rem 13rem" }}
+        className=" mt-12 mb-20 px-6 sm:px-12 grid gap-6 sm:gap-12 grid-cols-2 md:grid-cols-2 xs:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 justify-center items-center"
+      >
         {Cards.map((card, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-xl hover:cursor-pointer"
+            className=" bg-white rounded-xl shadow-xl hover:cursor-pointer"
           >
             <img
               className="w-full h-48 sm:h-56 object-cover rounded-t-2xl"
@@ -147,7 +258,9 @@ const Home = () => {
       </div>
 
       {/* Collection Section */}
-      <div>
+      <div
+      // style={{ padding: "0rem 10rem" }}
+      >
         <h3
           className="ml-12 text-3xl font-semibold mb-1"
           style={{ color: "rgb(54, 54, 54)" }}
@@ -176,7 +289,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="mt-8 mb-5 rounded-lg px-6 sm:px-12 grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-center items-center">
+        <div
+          // style={{ padding: "0rem 13rem" }}
+          className="mt-8 mb-5 rounded-lg px-6 sm:px-12 grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-center items-center"
+        >
           {Collection.map((card, index) => (
             <div
               key={index}
@@ -214,14 +330,15 @@ const Home = () => {
       </div>
 
       {/* Location Section */}
-      <div>
+      <div
+      // style={{ padding: "0rem 10rem" }}
+      >
         <div className="mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16 ">
           <h6 className="ml-12 text-3xl text-gray-800">
             Popular Localities in and Around{" "}
             <span className="font-semibold">Mumbai</span>
           </h6>
         </div>
-
         <div className="mt-8 mb-[5rem] px-6 sm:px-12 grid gap-6 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">
           {Locations.map((card, index) => (
             <div
@@ -262,6 +379,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Get the Zomato App */}
       <div style={{ backgroundColor: "rgb(255, 251, 247" }} className="p-2">
         <div className="flex justify-center flex-row">
           <img
@@ -277,76 +395,101 @@ const Home = () => {
             <h1 className="mt-5 text-xl text-grey-600 font-light">
               We will send you a link, open it on your phone to download the app
             </h1>
-            <div className="mt-7 flex items-center gap-20">
-              <div className="flex items-center">
-                <input
-                  id="email-radio"
-                  type="radio"
-                  name="contact-method"
-                  className="w-4 h-4 text-red-600 border-gray-300 focus:ring-0 focus:ring-red-600"
-                />
-                <label
-                  htmlFor="email-radio"
-                  className="ml-2 text-gray-800 font-light"
-                >
-                  Email
-                </label>
+            <div>
+              {/* Radio buttons for selecting contact method */}
+              <div className="mt-7 flex items-center gap-20">
+                <div className="flex items-center">
+                  <input
+                    onClick={() => setEmail(true)}
+                    id="email-radio"
+                    type="radio"
+                    name="contact-method"
+                    className="w-4 h-4 text-red-600 border-gray-300 focus:ring-0 focus:ring-red-600"
+                    defaultChecked // Email is selected by default
+                  />
+                  <label
+                    htmlFor="email-radio"
+                    className="ml-2 text-gray-800 font-light"
+                  >
+                    Email
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    onClick={() => setEmail(false)}
+                    id="phone-radio"
+                    type="radio"
+                    name="contact-method"
+                    className="w-4 h-4 text-red-600 border-red-600 focus:ring-0 checked:bg-red-600"
+                  />
+                  <label
+                    htmlFor="phone-radio"
+                    className="ml-2 text-gray-800 font-light"
+                  >
+                    Phone
+                  </label>
+                </div>
               </div>
-              <div className="flex items-center">
-                <input
-                  id="phone-radio"
-                  type="radio"
-                  name="contact-method"
-                  className="w-4 h-4 text-red-600 border-red-600 focus:ring-0 checked:bg-red-600"
-                />
-                <label
-                  htmlFor="phone-radio"
-                  className="ml-2 text-gray-800 font-light"
+
+              {/* Input field */}
+              <div className="mt-5 flex">
+                {isEmail ? (
+                  <TextField
+                    id="email-input"
+                    sx={{
+                      width: "15rem",
+                      "& .MuiOutlinedInput-root": {
+                        "&.Mui-focused fieldset": {
+                          borderColor: "rgb(224, 53, 70)",
+                        },
+                      },
+                      "& .MuiInputLabel-root": {
+                        "&.Mui-focused": {
+                          color: "rgb(224, 53, 70)",
+                        },
+                      },
+                    }}
+                    label="Email"
+                    variant="outlined"
+                  />
+                ) : (
+                  <div className="w-[15rem]">
+                    <PhoneInput
+                      country={"in"} // Default country
+                      placeholder="" // Removes the default "Phone" label
+                      inputStyle={{
+                        width: "100%",
+                        borderRadius: "4px",
+                        borderColor: "rgb(224, 53, 70)",
+                        height: "53px",
+                      }}
+                      buttonStyle={{
+                        borderRadius: "4px 0 0 4px",
+                        borderColor: "rgb(224, 53, 70)",
+                      }}
+                    />
+                  </div>
+                )}
+                <Button
+                  sx={{
+                    height: "53px",
+                    backgroundColor: "rgb(224, 53, 70)",
+                    color: "white",
+                    marginLeft: "10px",
+                    padding: "5px 20px",
+                    textTransform: "none",
+                    borderRadius: "5px",
+                  }}
                 >
-                  Phone
-                </label>
+                  <span className="block sm:hidden">Share</span>
+                  <span className="hidden sm:block">Share App Link</span>
+                </Button>
               </div>
             </div>
-            <div className="mt-5">
-              <TextField
-                id="outlined-basic"
-                sx={{
-                  width: "15rem",
-                  "& .MuiOutlinedInput-root": {
-                    "&.Mui-focused fieldset": {
-                      borderColor: "rgb(224, 53, 70)",
-                    },
-                  },
-                  "& .MuiInputLabel-root": {
-                    "&.Mui-focused": {
-                      color: "rgb(224, 53, 70)",
-                    },
-                  },
-                }}
-                label="Email"
-                variant="outlined"
-              />
-              <Button
-                sx={{
-                  height: "53px",
-                  backgroundColor: "rgb(224, 53, 70)",
-                  color: "white",
-                  marginLeft: "10px",
-                  padding: "5px 20px",
-                  textTransform: "none",
-                  borderRadius: "5px",
-                }}
-              >
-                <span className="block sm:hidden">Share</span>
-                <span className="hidden sm:block">Share App Link</span>
-              </Button>
-            </div>
 
-            <h5 className="mt-5 text-gray-600 font-light text-center">
-              Download app from
-            </h5>
+            <h5 className="mt-5 text-gray-600 font-light">Download app from</h5>
 
-            <div className="flex items-center gap-5 mt-5 justify-center">
+            <div className="flex items-center gap-5 mt-5 ">
               <img
                 width={"25%"}
                 src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"
@@ -359,6 +502,68 @@ const Home = () => {
               ></img>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Accordions */}
+      <div>
+        <div className="mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16">
+          <h6 className="ml-12 text-3xl text-gray-800">
+            Explore options near me
+          </h6>
+        </div>
+        <div className="mt-5 mb-[5rem] px-6 sm:px-12 grid gap-6">
+          {Accordion.map((card, index) => (
+            <div
+              key={index}
+              className={`border-2 border-grey-800 bg-white rounded-lg ${
+                openAccordions.includes(index)
+                  ? "bg-white-50"
+                  : "hover:bg-white-50"
+              } cursor-pointer`}
+            >
+              {/* Accordion Header */}
+              <div
+                className="flex justify-between items-center px-6 py-4"
+                onClick={() => toggleAccordion(index)}
+              >
+                <div>
+                  <h5 className="text-2xl text-gray-800 font-[400] text-[26px]">
+                    {card.title}
+                  </h5>
+                  {card.city === "See More" ? (
+                    <h6 className="mt-1 text-[1rem] text-white">text</h6>
+                  ) : (
+                    <h6 className="mt-1 text-[1rem] text-gray-600">
+                      {/* Add info here if needed */}
+                    </h6>
+                  )}
+                </div>
+                {openAccordions.includes(index) ? (
+                  <KeyboardArrowUpIcon sx={{ marginTop: "5px" }} />
+                ) : (
+                  <KeyboardArrowDownIcon sx={{ marginTop: "5px" }} />
+                )}
+              </div>
+
+              {/* Accordion Content */}
+              {openAccordions.includes(index) && (
+                <div className="px-6 py-4 text-gray-600">
+                  <ul className="list-none pl-6 flex flex-wrap gap-6 wrapper">
+                    {card.desc.map((descItem, idx) => (
+                      <li
+                        key={idx}
+                        className="text-[1.1rem] hover:text-[rgb(130, 130, 130)] text-grey-800 transition duration-200 ease-in-out"
+                        style={{ flex: "0 0 18%" }} // Controls the width of each item to fit two items per row
+                      >
+                        {descItem}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
