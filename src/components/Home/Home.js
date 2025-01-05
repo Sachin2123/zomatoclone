@@ -84,7 +84,6 @@ const Home = () => {
     { city: "Juhu", places: 250 },
     { city: "See More", places: "" },
   ];
-
   const cities = [
     "Ahmedabad",
     "Bangalore",
@@ -106,6 +105,62 @@ const Home = () => {
     "Vadodara",
     "Coimbatore",
     "Thiruvananthapuram",
+    "Agra",
+    "Ajmer",
+    "Aligarh",
+    "Amritsar",
+    "Aurangabad",
+    "Bareilly",
+    "Bhubaneswar",
+    "Bilaspur",
+    "Cuttack",
+    "Dehradun",
+    "Dhanbad",
+    "Durgapur",
+    "Faridabad",
+    "Gandhinagar",
+    "Ghaziabad",
+    "Gorakhpur",
+    "Gwalior",
+    "Haldwani",
+    "Hosur",
+    "Hubli",
+    "Jabalpur",
+    "Jalandhar",
+    "Jammu",
+    "Jamshedpur",
+    "Jodhpur",
+    "Kanpur",
+    "Kochi",
+    "Kolhapur",
+    "Kozhikode",
+    "Ludhiana",
+    "Madurai",
+    "Mangalore",
+    "Meerut",
+    "Moradabad",
+    "Mysore",
+    "Nashik",
+    "Noida",
+    "Pondicherry",
+    "Prayagraj",
+    "Raipur",
+    "Rajkot",
+    "Ranchi",
+    "Rourkela",
+    "Salem",
+    "Siliguri",
+    "Solapur",
+    "Srinagar",
+    "Tiruchirappalli",
+    "Tirupati",
+    "Tirunelveli",
+    "Udaipur",
+    "Ujjain",
+    "Varanasi",
+    "Vijayawada",
+    "Visakhapatnam",
+    "Warangal",
   ];
 
   const Accordion = [
@@ -199,7 +254,7 @@ const Home = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="flex flex-col sm:flex-row justify-center items-center sm:space-y-0 space-y-3 sm:space-x-3">
+          <div className="relative flex flex-col sm:flex-row justify-center items-center sm:space-y-0 space-y-3 sm:space-x-[-15px]">
             {/* Location Input */}
             <div className="flex items-center px-4 py-3 bg-white text-gray-700 rounded-lg w-full sm:w-64">
               <FmdGoodIcon className="text-red-400 mr-2" />
@@ -209,7 +264,12 @@ const Home = () => {
                 placeholder="Mumbai"
               />
             </div>
-            <div className="border-l-2 border-gray-300 h-6 mx-4 hidden sm:block"></div>
+
+            {/* Divider span */}
+            <span
+              style={{ marginRight: "7rem" }}
+              className="absolute sm:mx-4 hidden sm:block top-1/2 transform -translate-y-1/2 border-l-2 border-gray-300 h-6"
+            ></span>
 
             {/* Search Input */}
             <div className="flex items-center px-4 py-3 bg-white text-gray-700 rounded-lg w-full sm:w-96">
@@ -233,10 +293,7 @@ const Home = () => {
       </div>
 
       {/* Card Section */}
-      <div
-        // style={{ padding: "0rem 13rem" }}
-        className=" mt-12 mb-20 px-6 sm:px-12 grid gap-6 sm:gap-12 grid-cols-2 md:grid-cols-2 xs:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 justify-center items-center"
-      >
+      <div className="lg:px-[13rem] mt-12 mb-20 px-6 sm:px-12 grid gap-6 sm:gap-12 grid-cols-2 md:grid-cols-2 xs:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 justify-center items-center">
         {Cards.map((card, index) => (
           <div
             key={index}
@@ -258,16 +315,14 @@ const Home = () => {
       </div>
 
       {/* Collection Section */}
-      <div
-      // style={{ padding: "0rem 10rem" }}
-      >
+      <div>
         <h3
-          className="ml-12 text-3xl font-semibold mb-1"
+          className=" lg:px-[10rem] ml-12 text-3xl font-semibold mb-1"
           style={{ color: "rgb(54, 54, 54)" }}
         >
           Collections
         </h3>
-        <div className="flex flex-col sm:flex-row justify-between mr-16">
+        <div className=" lg:px-[10rem] flex flex-col sm:flex-row justify-between mr-16">
           <h6 className="ml-12 text-xl">
             Explore curated lists of top restaurants, cafes, pubs, and bars in
             Mumbai, based on trends.
@@ -289,10 +344,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div
-          // style={{ padding: "0rem 13rem" }}
-          className="mt-8 mb-5 rounded-lg px-6 sm:px-12 grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-center items-center"
-        >
+        <div className=" lg:px-[13rem] mt-8 mb-5 rounded-lg px-6 sm:px-12 grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-center items-center">
           {Collection.map((card, index) => (
             <div
               key={index}
@@ -330,16 +382,14 @@ const Home = () => {
       </div>
 
       {/* Location Section */}
-      <div
-      // style={{ padding: "0rem 10rem" }}
-      >
-        <div className="mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16 ">
+      <div>
+        <div className="lg:px-[10rem] mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16 ">
           <h6 className="ml-12 text-3xl text-gray-800">
             Popular Localities in and Around{" "}
             <span className="font-semibold">Mumbai</span>
           </h6>
         </div>
-        <div className="mt-8 mb-[5rem] px-6 sm:px-12 grid gap-6 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">
+        <div className="lg:px-[13rem] mt-8 mb-[5rem] px-6 sm:px-12 grid gap-6 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">
           {Locations.map((card, index) => (
             <div
               key={index}
@@ -507,12 +557,18 @@ const Home = () => {
 
       {/* Accordions */}
       <div>
-        <div className="mb-10 mt-20 flex flex-col sm:flex-row justify-between items-center mr-16">
-          <h6 className="ml-12 text-3xl text-gray-800">
+        <div className="lg:px-[10rem]  mb-10 mt-10 flex flex-col sm:flex-row justify-between items-center mr-16">
+          <h6
+            className="ml-12 text-3xl"
+            style={{
+              color: "rgb(54, 54, 54)",
+              fontWeight: "500",
+            }}
+          >
             Explore options near me
           </h6>
         </div>
-        <div className="mt-5 mb-[5rem] px-6 sm:px-12 grid gap-6">
+        <div className="lg:px-[13rem] mt-5 mb-[5rem] px-6 sm:px-12 grid gap-5">
           {Accordion.map((card, index) => (
             <div
               key={index}
@@ -528,7 +584,13 @@ const Home = () => {
                 onClick={() => toggleAccordion(index)}
               >
                 <div>
-                  <h5 className="text-2xl text-gray-800 font-[400] text-[26px]">
+                  <h5
+                    style={{
+                      fontSize: "20px",
+                      color: "rgb(28, 28, 28)",
+                      fontWeight: "400",
+                    }}
+                  >
                     {card.title}
                   </h5>
                   {card.city === "See More" ? (
@@ -553,7 +615,7 @@ const Home = () => {
                     {card.desc.map((descItem, idx) => (
                       <li
                         key={idx}
-                        className="text-[1.1rem] hover:text-[rgb(130, 130, 130)] text-grey-800 transition duration-200 ease-in-out"
+                        className="text-[1.1rem]  text-gray-500 hover:text-gray-800 transition duration-200 ease-in-out"
                         style={{ flex: "0 0 18%" }} // Controls the width of each item to fit two items per row
                       >
                         {descItem}
