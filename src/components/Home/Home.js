@@ -6,9 +6,8 @@ import { Search } from "lucide-react";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { TextField, Button } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { PhoneNumber, EmailField } from "../PhoneNumber/PhoneNumber";
+import { PhoneNumber, EmailField } from "../Contact/Contact";
 const Home = () => {
   const [isEmail, setEmail] = useState(true); // State to track the selected input
   const [openAccordions, setOpenAccordions] = useState([]); // State to track open accordions

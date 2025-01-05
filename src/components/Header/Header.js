@@ -19,9 +19,8 @@ const Header = () => {
       {/* Container */}
       <div className="mt-5 flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-8 lg:px-20">
         {/* Left Section */}
-        <div className="flex items-center">
+        <div className="flex items-center sm:block hidden">
           <div
-            //  className="text-white text-lg sm:text-xl font-light cursor-pointer"
             style={{
               fontSize: "1rem",
               lineHeight: "1.5px",
@@ -57,7 +56,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div
-          className="md:hidden text-white cursor-pointer"
+          className="md:hidden text-white cursor-pointer absolute top-4 left-4"
           onClick={toggleDrawer}
         >
           <svg
@@ -79,8 +78,8 @@ const Header = () => {
 
       {/* Mobile Drawer */}
       {isDrawerOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 z-20 flex justify-end">
-          <div className="w-64 bg-white h-full shadow-lg p-6">
+        <div className=" fixed inset-0 bg-black bg-opacity-75 z-20 flex justify-end">
+          <div className=" w-full bg-white h-full shadow-lg p-6">
             <button className="text-gray-700 mb-6" onClick={toggleDrawer}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
