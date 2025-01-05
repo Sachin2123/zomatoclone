@@ -8,8 +8,8 @@ import {
 } from "react-icons/fa";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import INDIA from "../../Flags/INDIA.png";
-import UAE from "../../Flags/UAE.png";
+import INDIA from "../../flags/INDIA.png";
+import UAE from "../../flags/UAE.png";
 import LanguageIcon from "@mui/icons-material/Language";
 const Footer = () => {
   const socialLinks = [
@@ -60,6 +60,7 @@ const Footer = () => {
   return (
     <div className="bg-[#FAFAFA] text-black">
       <div className="lg:px-[6rem] max-w-screen-xl mx-auto py-10 px-4">
+        {/* First Row */}
         <div className="grid grid-cols-1 xs:grid-cols-4 md:grid-cols-2 lg:flex lg:justify-between mb-5 gap-4">
           <img
             src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png?fit=around|198:42&crop=198:42;*,*"
@@ -300,6 +301,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Footer Content */}
         <div href="/" className=" mt-10 text-gray-500 border-t border-gray-300">
           <p className="text-sm mt-10">
             By continuing past this page, you agree to our Terms of Service,

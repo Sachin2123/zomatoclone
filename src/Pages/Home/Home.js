@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import BG from "../../BackgroundImage/ZomatoHomePage.avif";
-import Zomato from "../../BackgroundImage/ZomatoTitle.avif";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
-import { Search } from "lucide-react";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { PhoneNumber, EmailField } from "../Contact/Contact";
+import { PhoneNumber, EmailField } from "../../components/Contact/Contact";
+import BG from "../../BackgroundImage/ZomatoHomePage.avif";
+import Zomato from "../../BackgroundImage/ZomatoTitle.avif";
+import { Search } from "lucide-react";
 const Home = ({ isHomeVisible }) => {
-  const [isEmail, setEmail] = useState(true); // State to track the selected input
-  const [openAccordions, setOpenAccordions] = useState([]); // State to track open accordions
+  const [isEmail, setEmail] = useState(true);
+  const [openAccordions, setOpenAccordions] = useState([]);
 
   if (isHomeVisible === "true") {
     return null;
@@ -83,6 +83,7 @@ const Home = ({ isHomeVisible }) => {
       { city: "Juhu", places: 250 },
       { city: "See More", places: "" },
     ];
+
     const cities = [
       "Ahmedabad",
       "Bangalore",
@@ -498,12 +499,11 @@ const Home = ({ isHomeVisible }) => {
                   </div>
                 </div>
               </div>
-
-              <h5 className="mt-5 text-gray-600 font-light">
+              <h5 className="mt-5 text-gray-600 font-light flex justify-center items-center lg:justify-start lg:text-left">
                 Download app from
               </h5>
 
-              <div className="flex items-center gap-5 mt-5 ">
+              <div className="flex  items-center gap-5 mt-5 mb-10 justify-center item-center lg:justify-start lg:text-left ">
                 <img
                   width={"25%"}
                   src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"

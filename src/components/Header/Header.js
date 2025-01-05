@@ -17,7 +17,7 @@ const Header = ({ setIsHomeVisible }) => {
   };
 
   return (
-    <header className="bg-transparent py-4 px-6 fixed top-0 left-0 right-0 z-10">
+    <header className="bg-transparent py-4 px-6 absolute top-0 left-0 right-0 z-10">
       {/* Container */}
       <div className="mt-5 flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-8 lg:px-20">
         {/* Left Section */}
