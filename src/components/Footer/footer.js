@@ -92,7 +92,7 @@ const Footer = () => {
                 <div className="py-1 flex px-4">
                   <MenuItem>
                     <a
-                      href="#"
+                      href="https://www.zomato.com/"
                       className="flex block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                     >
                       <img
@@ -105,7 +105,7 @@ const Footer = () => {
                   </MenuItem>
                   <MenuItem>
                     <a
-                      href="#"
+                      href="https://www.zomato.com/"
                       className="flex block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                     >
                       <img
@@ -140,7 +140,7 @@ const Footer = () => {
                   {languages.map((language, index) => (
                     <MenuItem key={index}>
                       <a
-                        href="#"
+                        href="https://www.zomato.com/"
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                       >
                         {language.label}
@@ -220,12 +220,18 @@ const Footer = () => {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="/" className="text-gray-500 hover:text-gray-700">
+                <a
+                  href="https://www.zomato.com/"
+                  className="text-gray-500 hover:text-gray-700"
+                >
                   Partner with Us{" "}
                 </a>
               </li>
               <li>
-                <a href="/" className="text-gray-500 hover:text-gray-700">
+                <a
+                  href="https://www.zomato.com/"
+                  className="text-gray-500 hover:text-gray-700"
+                >
                   Apps For You{" "}
                 </a>
               </li>
@@ -246,17 +252,26 @@ const Footer = () => {
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="/" className="text-gray-500 hover:text-gray-700">
+                <a
+                  href="https://www.zomato.com/"
+                  className="text-gray-500 hover:text-gray-700"
+                >
                   Privacy{" "}
                 </a>
               </li>
               <li>
-                <a href="/" className="text-gray-500 hover:text-gray-700">
+                <a
+                  href="https://www.zomato.com/"
+                  className="text-gray-500 hover:text-gray-700"
+                >
                   Security{" "}
                 </a>
               </li>
               <li>
-                <a href="/" className="text-gray-500 hover:text-gray-700">
+                <a
+                  href="https://www.zomato.com/"
+                  className="text-gray-500 hover:text-gray-700"
+                >
                   Terms{" "}
                 </a>
               </li>
@@ -302,7 +317,10 @@ const Footer = () => {
         </div>
 
         {/* Footer Content */}
-        <div href="/" className=" mt-10 text-gray-500 border-t border-gray-300">
+        <div
+          href="https://www.zomato.com/"
+          className=" mt-10 text-gray-500 border-t border-gray-300"
+        >
           <p className="text-sm mt-10">
             By continuing past this page, you agree to our Terms of Service,
             Cookie Policy, Privacy Policy and Content Policies. All trademarks
